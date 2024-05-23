@@ -1,0 +1,12 @@
+#+title: Dev-env (development-environment)
+This repository sets us the default development environment for OSI projects. It serves as a way of making sure our development environments are reproducible, as well as providing a quick, one-line command for setting up a simulation development environment.
+
+* Useage
+Generally, users will use the following work flow when using this project:
+1. Make sure the [[https://github.com/Open-Systems-Innovation/custom-nixpkgs][custom-nixpkgs]] repo is downloaded on your machine. ~custom-nixpkgs~ contains the nix build expression for this ~dev-env~ repo.
+2. Make sure your [[https://nix-community.github.io/home-manager/][home-manager]] or ~configuration.nix~ file contains a ~custom-nixpkgs~ overlay, and include the ~dev-env~ package in your installed packages.
+3. Navigate to a new directory where you want to create a development environment
+4. Run ~dev-env~ in the terminal to create the flake.nix based development environment.
+
+* How it works
+When packaged with the ~custom-nixpkgs~ repo, ~dev-env~ gives the user a one-line command to set up and activate a development environment in the current working directory. It does this by first copying the flake.nix file in this repo, into your current working directory. Then it creates a ~.envrc~ file with the content "use flake". Finally it runs ~direnv-allow~. This creates an easily reproducible development environment that is easily integrated with your favorite IDE.
