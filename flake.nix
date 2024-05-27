@@ -10,7 +10,10 @@
     { self, nixpkgs, custom-nixpkgs, ... }:
       let
         system = "x86_64-linux";
-        pkgs = import nixpkgs { inherit system; overlays = [ custom-nixpkgs ]};
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ custom-nixpkgs.overlays.default ];
+        };
       in
         {
         devShells.default = pkgs.mkShellNoCC {
