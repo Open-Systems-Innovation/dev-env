@@ -16,32 +16,32 @@
         };
       in
         {
-        devShells.default = pkgs.mkShellNoCC {
-          name = "default";
-             
-          packages = [
-          # General packages
-            pkgs.hello-nix
+          devShells.${system}.default = pkgs.mkShell {
+            name = "default";
+               
+            packages = [
+            # General packages
+              pkgs.hello-nix
 
-            # Python packages
-            (pkgs.python3.withPackages (python-pkgs: [
-              # packages for formatting/ IDE
-              python-pkgs.black
-              python-pkgs.flake8
-              python-pkgs.jedi
-              python-pkgs.pip
-              python-pkgs.setuptools
-              # packages for code
-              python-pkgs.gmsh
-              python-pkgs.matplotlib
-              python-pkgs.meshio
-              python-pkgs.numpy
-            ]))
-          ];
+              # Python packages
+              #(pkgs.python3.withPackages (python-pkgs: [
+              #  # packages for formatting/ IDE
+              #  python-pkgs.black
+              #  python-pkgs.flake8
+              #  python-pkgs.jedi
+              #  python-pkgs.pip
+              #  python-pkgs.setuptools
+              #  # packages for code
+              #  python-pkgs.gmsh
+              #  python-pkgs.matplotlib
+              #  python-pkgs.meshio
+              #  python-pkgs.numpy
+              #]))
+            ];
 
-          shellHook = ''
-              export PS1="\[\e[0;32m\]dev-shell>\[\e[0;36m\] "
-          '';
-        };
+            shellHook = ''
+                export PS1="\[\e[0;32m\]dev-shell>\[\e[0;36m\] "
+            '';
+          };
         };
 }
