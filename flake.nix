@@ -25,11 +25,8 @@
               # Python packages
               #(pkgs.python3.withPackages (python-pkgs: [
               #  # packages for formatting/ IDE
-              #  python-pkgs.black
-              #  python-pkgs.flake8
-              #  python-pkgs.jedi
               #  python-pkgs.pip
-              #  python-pkgs.setuptools
+              #  python-pkgs.python-lsp-server
               #  # packages for code
               #  python-pkgs.gmsh
               #  python-pkgs.matplotlib
@@ -39,7 +36,7 @@
             ];
 
             shellHook = ''
-                export PS1="\[\e[0;32m\]dev-shell>\[\e[0;36m\] "
+                export PS1="\[\e[0;32m\][dev-shell]$\[\e[0;36m\] "
             '';
           };
         };
