@@ -2,10 +2,6 @@
 
 import os
 import shutil
-from pathlib import Path
-
-cwd = Path.cwd()  # Current working directory
-print(f"Current Working Directory: {cwd}")
 
 # Path to the source flake.nix file
 source_flake_path = os.path.join(os.path.dirname(__file__), 'flake.nix')
