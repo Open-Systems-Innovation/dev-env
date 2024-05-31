@@ -20,7 +20,7 @@
                
             packages = [
             # General packages
-              pkgs.hello-nix
+              #pkgs.hello-nix
 
               # Python packages
               #(pkgs.python3.withPackages (python-pkgs: [
@@ -28,6 +28,7 @@
               #  python-pkgs.pip
               #  python-pkgs.python-lsp-server
               #  # packages for code
+              #  python-pkgs.firedrake
               #  python-pkgs.gmsh
               #  python-pkgs.matplotlib
               #  python-pkgs.meshio
@@ -36,6 +37,8 @@
             ];
 
             shellHook = ''
+              export ENVIRONMENT_NAME="firedrake"
+              export PS1 = "┌─[\[\e[01;32m\]\u\[\e[00m\]@\[\e[01;32m\]\h\[\e[00m\]:\[\e[1;34m\]\w\[\e[0m\]][$ENVIRONMENT_NAME]\n└─╼"
                 export PS1="\[\e[0;32m\][dev-shell]$\[\e[0;36m\] "
             '';
           };
